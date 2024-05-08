@@ -79,11 +79,12 @@ if __name__ == "__main__":
     if product_services == '':
         st.warning('Specific product or service for the marketing campaign was not provided in your input')
 
-    button=st.button('Submit')
-    if (button==True):
-        generated_output = Target_Audience_Finder(product_service=product_services)
-        output = generated_output[0]['task_output']
-        st.write(output)
-        st.markdown('---')
+    if product_services != '':
+        button=st.button('Submit')
+        if (button==True):
+            generated_output = Target_Audience_Finder(product_service=product_services)
+            output = generated_output[0]['task_output']
+            st.write(output)
+            st.markdown('---')
    
     utils.template_end()
